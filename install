@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Variables to hold the configuration settings
+password_authentication="PasswordAuthentication yes"
+permit_root_login="PermitRootLogin yes"
+version_addendum="VersionAddendum PHC_Jerico"
+sshd_config="/etc/ssh/sshd_config"
+
+# Backup the original sshd_config file
+cp $sshd_config ${sshd_config}.bak
+
+# Function to update or add a configuration setting
+update_config() {
+    local setting="$1"
+    local config_file="$2"
+    if grep -q "^${setting%% *}" "$config_file"; then
+        sed -i "s/^${setting%% *}.*/$setting/" "$config_file"
+    else
+        echo "$setting" >> "$config_file"
+    fi
+}
+
+# Update the sshd_config file with the desired settings
+update_config "$password_authentication" "$sshd_config"
+update_config "$permit_root_login" "$sshd_config"
+update_config "$version_addendum" "$sshd_config"
+
+# Restart the SSH service to apply the changes
+service sshd restart
+
+# Print a message indicating the script has completed
+echo "sshd_config has been updated and the SSH service has been restarted."
