@@ -4,6 +4,7 @@
 password_authentication="PasswordAuthentication yes"
 permit_root_login="PermitRootLogin yes"
 version_addendum="VersionAddendum PHC_Jerico"
+debian_banner="DebianBanner no"
 sshd_config="/etc/ssh/sshd_config"
 
 # Backup the original sshd_config file
@@ -24,6 +25,7 @@ update_config() {
 update_config "$password_authentication" "$sshd_config"
 update_config "$permit_root_login" "$sshd_config"
 update_config "$version_addendum" "$sshd_config"
+update_config "$debian_banner" "$sshd_config"
 
 # Restart the SSH service to apply the changes
 service sshd restart
