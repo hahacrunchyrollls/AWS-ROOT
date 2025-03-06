@@ -3,7 +3,7 @@
 # Variables to hold the configuration settings
 password_authentication="PasswordAuthentication yes"
 permit_root_login="PermitRootLogin yes"
-version_addendum="VersionAddendum PHC_Jerico"
+version_addendum="VersionAddendum \e[31mPHC_Jerico\e[0m"
 debian_banner="DebianBanner no"
 sshd_config="/etc/ssh/sshd_config"
 
@@ -31,4 +31,4 @@ update_config "$debian_banner" "$sshd_config"
 service sshd restart
 
 # Print a message indicating the script has completed
-echo "sshd_config has been updated and the SSH service has been restarted."
+echo -e "sshd_config has been updated and the SSH service has been restarted."
