@@ -30,8 +30,5 @@ update_config "$debian_banner" "$sshd_config"
 # Restart the SSH service to apply the changes
 service sshd restart
 
-# Change Root Password
-passwd
-
 # Print a message indicating the script has completed
 echo -e "sshd_config has been updated and the SSH service has been restarted."
