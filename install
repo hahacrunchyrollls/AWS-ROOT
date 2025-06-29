@@ -3,7 +3,7 @@
 # Variables to hold the configuration settings
 password_authentication="PasswordAuthentication yes"
 permit_root_login="PermitRootLogin yes"
-version_addendum="VersionAddendum <font color="red">PHC_Jerico</font>"
+version_addendum="VersionAddendum no"
 debian_banner="DebianBanner no"
 sshd_config="/etc/ssh/sshd_config"
 
