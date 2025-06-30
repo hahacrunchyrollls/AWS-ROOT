@@ -3,7 +3,7 @@
 # Variables to hold the configuration settings
 password_authentication="PasswordAuthentication yes"
 permit_root_login="PermitRootLogin yes"
-version_addendum="VersionAddendum no"
+version_addendum="VersionAddendum none"
 debian_banner="DebianBanner no"
 sshd_config="/etc/ssh/sshd_config"
 
